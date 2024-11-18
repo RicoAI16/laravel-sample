@@ -16,6 +16,24 @@
         </style>
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+        <!-- Big White Text Welcoming Section with Icons -->
+        <section class="welcome-hero relative text-center p-20 bg-[#FF2D20]">
+            <div class="icon-container absolute -top-10 left-10 size-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FF2D20]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6h2V7zm0 8h-2v2h2v-2z"/>
+                </svg>
+            </div>
+
+            <h1 class="text-5xl font-bold text-white mb-4">Welcome to Your Laravel Journey!</h1>
+            <p class="text-xl text-white/80 mb-8">Discover, explore, and build amazing things with Laravel.</p>
+
+            <div class="icon-container absolute -top-8 right-10 size-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#FF2D20]" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-17v6h-2V5h2zm4 0v2h-4v2h4v2h-6V5h6z"/>
+                </svg>
+            </div>
+        </section>
+
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" />
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
@@ -160,6 +178,27 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- New Welcome Section -->
+                        <section class="welcome-section mt-10 p-6 text-center bg-[#FF2D20]/10 rounded-lg shadow-lg">
+                            <h1 class="text-4xl font-bold text-black dark:text-white">Welcome to Laravel Exploration!</h1>
+                            <p class="mt-4 text-lg text-black/70 dark:text-white/70">
+                                Dive into the Laravel universe and unlock endless possibilities with ease.
+                            </p>
+                        </section>
+
+                        <!-- New Tab for Example Website Link -->
+                        <section class="example-link mt-10 text-center">
+                            <h2 class="text-2xl font-semibold text-black dark:text-white">Try an Example Site</h2>
+                            <p class="mt-2">
+                                <a
+                                    href="https://example.com"
+                                    target="_blank"
+                                    class="text-lg underline text-[#FF2D20] hover:text-black/70 dark:hover:text-white/80 transition"
+                                >
+                                    Click here to visit an example site
+                                </a>
+                            </p>
+                        </section>
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
