@@ -3,29 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
     // Display a list of students
     public function index()
     {
-        $students = [
-            ['名前' => '山田 太郎', '年齢' => 20, '学科' => '情報学科'],
-            ['名前' => '佐藤 花子', '年齢' => 21, '学科' => '経済学科'],
-        ];
+        $students = Student::all(); // Fetch all students
         return view('students', ['students' => $students]);
     }
 
     // Show a specific student
     public function show($id)
     {
-        $students = [
-            1 => ['名前' => '山田 太郎', '年齢' => 20, '学科' => '情報学科'],
-            2 => ['名前' => '佐藤 花子', '年齢' => 21, '学科' => '経済学科'],
-        ];
+        $student = Student::find($id); // Find student by ID
 
-        if (isset($students[$id])) {
-            return view('student', ['student' => $students[$id]]);
+        if ($student) {
+            return view('student', ['student' => $student]);
         } else {
             return view('error', ['message' => '学生が見つかりません。']); // Student not found
         }
