@@ -9,6 +9,5 @@ class Student extends Model
 {
     use HasFactory;
 
-    // Fields that can be mass-assigned
     protected $fillable = ['name', 'age', 'major'];
 }

@@ -7,16 +7,12 @@ use Illuminate\Support\Facades\DB;
 
 class StudentsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
         DB::table('students')->insert([
-            ['name' => '山田 太郎', 'age' => 20, 'major' => '情報学科'],
-            ['name' => '佐藤 花子', 'age' => 21, 'major' => '経済学科'],
+            ['name' => 'John Doe', 'age' => 20, 'major' => 'Computer Science'],
+            ['name' => 'Jane Smith', 'age' => 22, 'major' => 'Mathematics'],
+            ['name' => 'Sam Wilson', 'age' => 21, 'major' => 'Engineering'],
         ]);
     }
 }

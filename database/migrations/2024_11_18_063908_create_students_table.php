@@ -6,27 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateStudentsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id(); // Auto-increment ID
-            $table->string('name'); // Student name
-            $table->integer('age'); // Student age
-            $table->string('major'); // Student major
-            $table->timestamps(); // Created_at and Updated_at
+            $table->id();
+            $table->string('name');
+            $table->integer('age');
+            $table->string('major');
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('students');

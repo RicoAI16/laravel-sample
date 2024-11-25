@@ -14,13 +14,6 @@ class StudentController extends Controller
         return view('students.index', ['students' => $students]);
     }
 
-    // Show a specific student's details
-    public function show($id)
-    {
-        $student = Student::findOrFail($id);
-        return view('students.show', ['student' => $student]);
-    }
-
     // Display a form for creating a new student
     public function create()
     {
@@ -59,10 +52,6 @@ class StudentController extends Controller
             'name' => 'required|string|max:255',
             'age' => 'required|integer|min:1|max:100',
             'major' => 'required|string|max:100',
-        ], [
-            'name.required' => '名前は必須です。',
-            'age.required' => '年齢は必須です。',
-            'major.required' => '専攻は必須です。',
         ]);
 
         $student = Student::findOrFail($id);
