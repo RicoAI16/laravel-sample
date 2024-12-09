@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
-// Redirect the root URL to /posts
+// Redirect root URL to posts.index
 Route::redirect('/', '/posts');
 
 // Grouped routes for posts
@@ -15,4 +16,13 @@ Route::prefix('posts')->name('posts.')->group(function () {
     Route::get('/{post}/edit', [PostController::class, 'edit'])->name('edit');
     Route::put('/{post}', [PostController::class, 'update'])->name('update');
     Route::delete('/{post}', [PostController::class, 'destroy'])->name('destroy');
+
+    // Nested routes for comments
+    Route::post('/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/{post}/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+});
+
+// Fallback route for 404 errors
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
 });
