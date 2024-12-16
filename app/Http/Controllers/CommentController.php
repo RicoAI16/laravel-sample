@@ -20,7 +20,7 @@ class CommentController extends Controller
         $post->comments()->create($validated);
 
         // Redirect back to the post with success message
-        return redirect()->route('posts.show', $post)->with('success', __('コメントが追加されました。'));
+        return redirect()->route('posts.show', $post)->with('success', __('messages.comment_added'));
     }
 
     public function destroy(Post $post, Comment $comment)
@@ -29,7 +29,6 @@ class CommentController extends Controller
         $comment->delete();
 
         // Redirect back to the post with success message
-        return redirect()->route('posts.show', $post)->with('success', __('コメントが削除されました。'));
+        return redirect()->route('posts.show', $post)->with('success', __('messages.comment_deleted'));
     }
 }
-
