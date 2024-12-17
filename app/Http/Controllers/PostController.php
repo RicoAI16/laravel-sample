@@ -29,7 +29,7 @@ class PostController extends Controller
         // Create a new post
         Post::create($validated);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully!');
+        return redirect()->route('posts.index')->with('success', __('messages.post_created'));
     }
 
     public function show(Post $post)
@@ -53,7 +53,7 @@ class PostController extends Controller
         // Update the post
         $post->update($validated);
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
+        return redirect()->route('posts.index')->with('success', __('messages.post_updated'));
     }
 
     public function destroy(Post $post)
@@ -61,6 +61,6 @@ class PostController extends Controller
         // Delete the post
         $post->delete();
 
-        return redirect()->route('posts.index')->with('success', 'Post deleted successfully!');
+        return redirect()->route('posts.index')->with('success', __('messages.post_deleted'));
     }
 }
