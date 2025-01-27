@@ -5,6 +5,7 @@
     <p>{{ $post->content }}</p>
 
     <h2>コメント</h2>
+    <!-- Display all comments -->
     @if ($post->comments->count())
         <ul>
             @foreach ($post->comments as $comment)
@@ -22,14 +23,21 @@
         <p>まだコメントはありません。</p>
     @endif
 
+    <!-- Add Comment Form -->
     <h3>コメントを追加</h3>
     <form action="{{ route('posts.comments.store', $post) }}" method="POST">
         @csrf
         <label for="author">名前:</label>
-        <input type="text" id="author" name="author" required>
+        <input type="text" id="author" name="author">
+        @error('author')
+            <div style="color: red;">{{ $message }}</div>
+        @enderror
 
         <label for="content">内容:</label>
-        <textarea id="content" name="content" required></textarea>
+        <textarea id="content" name="content"></textarea>
+        @error('content')
+            <div style="color: red;">{{ $message }}</div>
+        @enderror
 
         <button type="submit">コメントを投稿</button>
     </form>
