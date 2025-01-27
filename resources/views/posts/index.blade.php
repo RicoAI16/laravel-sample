@@ -20,7 +20,7 @@
                     <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">削除</button>
+                        <button type="submit" class="btn-delete">削除</button>
                     </form>
                 </div>
             </li>

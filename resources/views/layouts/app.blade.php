@@ -34,7 +34,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+        h1, h2 {
             color: #333;
         }
         .btn {
@@ -50,6 +50,13 @@
         }
         .btn:hover {
             background-color: #218838;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         ul {
             list-style: none;
@@ -92,6 +99,25 @@
             border-radius: 5px;
             margin-bottom: 15px;
         }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
     </style>
 </head>
 <body>
@@ -104,5 +130,9 @@
     <main>
         @yield('content')
     </main>
+
+    <footer>
+        &copy; 2025 Laravel Posts App. All rights reserved.
+    </footer>
 </body>
 </html>

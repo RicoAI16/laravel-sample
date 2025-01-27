@@ -3,9 +3,8 @@
 @section('content')
     <h1>新しい投稿を作成</h1>
 
-    <!-- Validation errors display -->
     @if ($errors->any())
-        <div style="color: red;">
+        <div class="error-message">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -14,21 +13,15 @@
         </div>
     @endif
 
-    <!-- Create Post Form -->
     <form action="{{ route('posts.store') }}" method="POST">
         @csrf
         <label for="title">タイトル</label>
-        <input type="text" id="title" name="title" value="{{ old('title') }}">
-        @error('title')
-            <div style="color: red;">{{ $message }}</div>
-        @enderror
+        <input type="text" id="title" name="title" value="{{ old('title') }}" required>
 
         <label for="content">内容</label>
-        <textarea id="content" name="content">{{ old('content') }}</textarea>
-        @error('content')
-            <div style="color: red;">{{ $message }}</div>
-        @enderror
+        <textarea id="content" name="content" rows="5" required>{{ old('content') }}</textarea>
 
-        <button type="submit">投稿する</button>
+        <button type="submit" class="btn">投稿する</button>
+        <a href="{{ route('posts.index') }}" class="btn">戻る</a>
     </form>
 @endsection
