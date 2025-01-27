@@ -8,27 +8,28 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    // Store a newly created comment for a post
     public function store(Request $request, Post $post)
     {
-        // Validate the input
+        // Validate input data
         $validated = $request->validate([
-            'author' => 'required|max:255',
-            'content' => 'required|max:1000',
+            'author' => 'required|max:255', // Author is required
+            'content' => 'required|max:1000', // Content is required (max 1000 characters)
         ]);
 
-        // Create the comment associated with the post
+        // Add the validated comment to the post
         $post->comments()->create($validated);
 
         // Redirect back to the post with success message
         return redirect()->route('posts.show', $post)->with('success', __('messages.comment_added'));
     }
 
+    // Remove the specified comment from a post
     public function destroy(Post $post, Comment $comment)
     {
-        // Delete the comment
-        $comment->delete();
+        $comment->delete(); // Delete the comment
 
-        // Redirect back to the post with success message
+        // Redirect back with success message
         return redirect()->route('posts.show', $post)->with('success', __('messages.comment_deleted'));
     }
 }

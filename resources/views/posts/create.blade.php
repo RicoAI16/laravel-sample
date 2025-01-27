@@ -4,7 +4,7 @@
     <h1>新しい投稿を作成</h1>
 
     @if ($errors->any())
-        <div>
+        <div class="error-message">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -19,8 +19,9 @@
         <input type="text" id="title" name="title" value="{{ old('title') }}" required>
 
         <label for="content">内容</label>
-        <textarea id="content" name="content" required>{{ old('content') }}</textarea>
+        <textarea id="content" name="content" rows="5" required>{{ old('content') }}</textarea>
 
-        <button type="submit">投稿する</button>
+        <button type="submit" class="btn">投稿する</button>
+        <a href="{{ route('posts.index') }}" class="btn">戻る</a>
     </form>
 @endsection

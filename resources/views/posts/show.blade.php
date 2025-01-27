@@ -26,13 +26,12 @@
     <form action="{{ route('posts.comments.store', $post) }}" method="POST">
         @csrf
         <label for="author">名前:</label>
-        <input type="text" id="author" name="author" required>
+        <input type="text" id="author" name="author" value="{{ old('author') }}" placeholder="名前を入力してください" required>
 
         <label for="content">内容:</label>
-        <textarea id="content" name="content" required></textarea>
+        <textarea id="content" name="content" rows="4" placeholder="コメントを入力してください" required></textarea>
 
-        <button type="submit">コメントを投稿</button>
+        <button type="submit" class="btn">コメントを投稿</button>
+        <a href="{{ route('posts.index') }}" class="btn">戻る</a>
     </form>
-
-    <a href="{{ route('posts.index') }}">戻る</a>
 @endsection
