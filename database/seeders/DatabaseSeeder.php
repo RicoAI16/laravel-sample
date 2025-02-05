@@ -22,11 +22,5 @@ class DatabaseSeeder extends Seeder
                 'remember_token' => \Illuminate\Support\Str::random(10),
             ]
         );
-
-        // Call the StudentsTableSeeder to seed students data
-        $this->call(StudentsTableSeeder::class);
-
-        // Optionally, create additional users if needed
-        // User::factory(10)->create();
     }
 }
