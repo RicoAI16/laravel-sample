@@ -124,6 +124,21 @@
     <header>
         <nav>
             <a href="{{ route('posts.index') }}">投稿リスト</a>
+
+            <!-- Authentication Links -->
+            @guest
+                <a href="{{ route('login') }}">ログイン</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">新規登録</a>
+                @endif
+            @else
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    ログアウト
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endguest
         </nav>
     </header>
 
