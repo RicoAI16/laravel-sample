@@ -14,6 +14,11 @@ class HomeController extends Controller
     public function index()
     {
         // Redirect to posts index
-        return redirect()->route('posts.index');
+        return redirect()->route('dashboard');
     }
+        public function dashboard()
+    {
+        return view('dashboard');
+    }
+
 }

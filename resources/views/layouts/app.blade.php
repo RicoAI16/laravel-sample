@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Posts App</title>
+    <title>Laravel 投稿アプリ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -113,19 +113,17 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-
         .btn-delete:hover {
             background-color: #c82333;
         }
-
     </style>
 </head>
 <body>
     <header>
         <nav>
             <a href="{{ route('posts.index') }}">投稿リスト</a>
+            <a href="{{ route('dashboard') }}">ダッシュボード</a>
 
-            <!-- Authentication Links -->
             @guest
                 <a href="{{ route('login') }}">ログイン</a>
                 @if (Route::has('register'))
@@ -147,7 +145,7 @@
     </main>
 
     <footer>
-        &copy; 2025 Laravel Posts App. All rights reserved.
+        &copy; 2025 Laravel 投稿アプリ. All rights reserved.
     </footer>
 </body>
 </html>
