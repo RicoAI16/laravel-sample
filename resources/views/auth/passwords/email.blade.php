@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-    <h2>Reset Password</h2>
+    <h2>パスワードリセット</h2>
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
         <div>
-            <label for="email">Email:</label>
+            <label for="email">メールアドレス:</label>
             <input type="email" id="email" name="email" required>
         </div>
-        <button type="submit">Send Password Reset Link</button>
+        <button type="submit">パスワードリセットリンクを送信</button>
     </form>
 </div>
 @endsection
