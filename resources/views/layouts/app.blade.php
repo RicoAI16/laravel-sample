@@ -51,7 +51,7 @@
         .btn:hover {
             background-color: #218838;
         }
-        input[type="text"], textarea {
+        input[type="text"], input[type="email"], input[type="password"], textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -99,22 +99,19 @@
             border-radius: 5px;
             margin-bottom: 15px;
         }
+        .error-message {
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
         footer {
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
             color: #666;
-        }
-        .btn-delete {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .btn-delete:hover {
-            background-color: #c82333;
         }
     </style>
 </head>
@@ -141,6 +138,31 @@
     </header>
 
     <main>
+        {{-- ✅ Success Message --}}
+        @if(session('success'))
+            <div class="success-message">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        {{-- ✅ Error Message --}}
+        @if(session('error'))
+            <div class="error-message">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        {{-- ✅ Laravel Validation Errors --}}
+        @if ($errors->any())
+            <div class="error-message">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         @yield('content')
     </main>
 
