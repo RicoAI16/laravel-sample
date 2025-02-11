@@ -2,26 +2,37 @@
 
 @section('content')
 <div class="container">
-    <h2>ログイン</h2>
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        <div>
-            <label for="email">メールアドレス:</label>
-            <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-            @error('email')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">ログイン</div>
 
-        <div>
-            <label for="password">パスワード:</label>
-            <input type="password" id="password" name="password" required>
-            @error('password')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
-        <button type="submit">ログイン</button>
-    </form>
+                        {{-- ✅ Only show validation errors beneath each input field --}}
+                        <div class="form-group">
+                            <label for="email">メールアドレス:</label>
+                            <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
+                            @error('email')
+                                <small class="text-danger">{{ $message }}</small> {{-- ✅ Show error under input field only --}}
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">パスワード:</label>
+                            <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
+                            @error('password')
+                                <small class="text-danger">{{ $message }}</small> {{-- ✅ Show error under input field only --}}
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">ログイン</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
